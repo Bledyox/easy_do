@@ -1,6 +1,7 @@
 package dev.sash.hsel.mad.easydo.app;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -85,6 +86,7 @@ public class DetailActivity extends AppCompatActivity implements ContactAdapter.
         }
     }
 
+    @SuppressLint("Range")
     public Contact loadContact(String id) {
         Contact contact = new Contact(id);
         String internal_id = null;

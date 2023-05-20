@@ -107,6 +107,7 @@ public class OverviewActivity extends AppCompatActivity implements TodoAdapter.L
                         Gson gson = new Gson();
                         Type type = new TypeToken<List<Todo>>() {}.getType();
                         List<Todo> list = gson.fromJson(json, type);
+                        assert list != null;
                         for (Todo todo : list) {
                             repository.create(todo, id -> {
                                 todo.setId(id);
