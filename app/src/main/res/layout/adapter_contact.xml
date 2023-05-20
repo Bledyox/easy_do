@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="contact" type="dev.sash.hsel.mad.easydo.model.Contact" />
+        <variable name="listener" type="dev.sash.hsel.mad.easydo.widget.ContactAdapter.Listener" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/inner_margin_horizontal_small"
+        app:closeIcon="@drawable/ic_btn_close"
+        app:closeIconVisible="true"
+        android:onClick="@{() -> listener.onClickItem(contact.id)}"
+        app:onClickCloseIcon="@{() -> listener.onClickItemCloseIcon(contact.id)}"
+        android:text="@{contact.displayname}"
+        tools:text="Test"/>
+
+</layout>

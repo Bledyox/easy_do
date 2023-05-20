@@ -1,0 +1,19 @@
+<resources>
+    <style name="Theme.EasyDo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/style_theme_color_5</item>
+        <item name="colorPrimaryDark">@color/style_system_color_0</item>
+        <item name="colorPrimaryVariant">@color/style_theme_color_4</item>
+        <item name="colorOnPrimary">@color/style_system_color_1</item>
+        <item name="colorSecondary">@color/style_theme_color_4</item>
+        <item name="colorSecondaryVariant">@color/style_theme_color_5</item>
+        <item name="colorOnSecondary">@color/style_system_color_1</item>
+        <item name="android:colorBackground">@color/style_system_color_0</item>
+        <item name="colorOnBackground">@color/style_system_color_1</item>
+        <item name="colorSurface">@color/style_theme_color_1</item>
+        <item name="colorOnSurface">@color/style_system_color_1</item>
+        <item name="colorError">@color/style_system_color_2</item>
+        <item name="colorOnError">@color/style_system_color_1</item>
+        <item name="colorAccent">@color/style_theme_color_4</item>
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+    </style>
+</resources>

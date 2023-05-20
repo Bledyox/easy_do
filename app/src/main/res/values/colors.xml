@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="style_system_color_0">@color/black</color>
+    <color name="style_system_color_1">@color/white</color>
+    <color name="style_system_color_2">@color/maroon</color>
+
+    <color name="style_theme_color_1">@color/cinder</color>
+    <color name="style_theme_color_2">@color/tuna</color>
+    <color name="style_theme_color_3">@color/mid_grey</color>
+    <color name="style_theme_color_4">@color/yellow_green</color>
+    <color name="style_theme_color_5">@color/vida_loca</color>
+
+    <!-- default -->
+    <color name="colorDefaultPrimary">#6200EE</color>
+    <color name="colorDefaultPrimaryDark">#3700B3</color>
+    <color name="colorDefaultAccent">#03DAC5</color>
+
+    <!-- https://visme.co/blog/wp-content/uploads/2016/09/website12-1024x512.jpg -->
+    <color name="black_russian">#0B0C10</color>
+    <color name="bunker">#1F2833</color>
+    <color name="link_water">#C5C6C7</color>
+    <color name="baby_blue">#66FCF1</color>
+    <color name="blue_chill">#45A29E</color>
+
+    <!-- https://visme.co/blog/wp-content/uploads/2016/09/website27-1024x512.jpg -->
+    <color name="cinder">#222629</color>
+    <color name="tuna">#474B4F</color>
+    <color name="mid_grey">#6B6E70</color>
+    <color name="yellow_green">#86C232</color>
+    <color name="vida_loca">#61892F</color>
+
+    <!-- other -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="maroon">#800000</color>
+
+</resources>

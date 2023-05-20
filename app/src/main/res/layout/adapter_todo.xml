@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="dev.sash.hsel.mad.easydo.R" />
+        <import type="android.view.View" />
+        <import type="dev.sash.hsel.mad.easydo.utils.DataConverter" />
+        <variable name="todo" type="dev.sash.hsel.mad.easydo.model.Todo" />
+        <variable name="listener" type="dev.sash.hsel.mad.easydo.widget.TodoAdapter.Listener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_todo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+        android:layout_marginVertical="@dimen/outer_margin_vertical"
+        android:onClick="@{() -> listener.onClickAdapterItem(todo.id)}"
+        tools:layout_height="64dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+            android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/check_done"
+                android:layout_width="@dimen/check_width_no_spacing"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                android:button="@drawable/ic_check_done_32"
+                android:checked="@={todo.done}"
+                android:onClick="@{() -> listener.onChangeAdapterItem(todo)}"
+                tools:checked="false" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                android:layout_toEndOf="@+id/check_done"
+                android:layout_alignParentTop="true"
+                android:text="@{todo.name}"
+                android:textColor="@{todo.done ? @color/style_theme_color_5 : @color/style_system_color_1}"
+                android:textSize="@dimen/text_size_head"
+                android:textStyle="bold"
+                tools:text="@string/key_todo_name" />
+
+            <TextView
+                android:id="@+id/item_expiry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_name"
+                android:textColor="@{todo.done ? @color/style_system_color_1 : DataConverter.isDateExpired(todo.expiry) ? @color/style_system_color_2 : @color/style_system_color_1}"
+                android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                android:layout_toEndOf="@id/check_done"
+                android:drawableStart="@{todo.done ? @drawable/ic_text_expiry_12 : DataConverter.isDateExpired(todo.expiry) ? @drawable/ic_text_expiry_error_12 : @drawable/ic_text_expiry_12}"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:visibility="@{todo.expiry == Long.MAX_VALUE ? View.INVISIBLE : View.VISIBLE}"
+                android:text="@{DataConverter.fromDateToText(todo.expiry)}"
+                tools:text="@string/key_todo_expiry"
+                android:textSize="@dimen/text_size"
+                tools:drawableStart="@drawable/ic_text_expiry_12"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/check_favourite"
+                android:layout_width="@dimen/check_width_no_spacing"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                android:button="@drawable/ic_check_favourite_32"
+                android:checked="@={todo.favourite}"
+                android:onClick="@{() -> listener.onChangeAdapterItem(todo)}"
+                tools:checked="true" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,0 +1,2 @@
+192.168.178.27 - - [19/Oct/2020:19:49:00 +0200] GET /api/todos HTTP/1.1 200 294 http-bio-8080-exec-2 1350
+192.168.178.27 - - [19/Oct/2020:19:49:18 +0200] PUT /api/users/auth HTTP/1.1 200 4 http-bio-8080-exec-3 142

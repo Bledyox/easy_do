@@ -1,0 +1,58 @@
+
+<resources>
+
+    <string name="app_name">EasyDo</string>
+
+    <string name="action_add_contact">+</string>
+    <string name="action_delete_local_todos">Lokale Todos löschen</string>
+    <string name="action_delete_remote_todos">Remote Todos löschen</string>
+    <string name="action_generate_todos">Todos generieren</string>
+    <string name="action_login">Anmelden</string>
+    <string name="action_sort_toogle_expiry_favourite">Datum + Favorit</string>
+    <string name="action_sort_toogle_favourite_expiry">Favorit + Datum</string>
+    <string name="action_synchronize_todos">Todos synchronisieren</string>
+
+    <string name="dialog_message_share_contact">Mit welcher Methode möchten Sie ihr Todo teilen?</string>
+    <string name="dialog_message_delete_local_todos">Dadurch werden alle lokalen Todos dauerhaft gelöscht.</string>
+    <string name="dialog_message_delete_remote_todos">Dadurch werden alle remote Todos dauerhaft gelöscht.</string>
+    <string name="dialog_message_delete_todo">Dadurch wird das aktuelle Todo dauerhaft gelöscht.</string>
+    <string name="dialog_message_save_todo">Es wurde kein gültiger Name eingegeben. Wollen Sie das Todo verwerfen?</string>
+    <string name="dialog_action_email">E-Mail</string>
+    <string name="dialog_action_sms">SMS</string>
+    <string name="dialog_action_negative">Nein</string>
+    <string name="dialog_action_neutral">Abbrechen</string>
+    <string name="dialog_action_positive">Ja</string>
+    <string name="dialog_title_share_contact">Todo teilen</string>
+    <string name="dialog_title_delete_local_todos">Lokale Todos löschen?</string>
+    <string name="dialog_title_delete_remote_todos">Remote Todos löschen?</string>
+    <string name="dialog_title_delete_todo">Todo löschen?</string>
+    <string name="dialog_title_save_todo">Kein gültiger Name vorhanden</string>
+
+    <string name="error_email_invalid">E-Mail ist ungültig</string>
+    <string name="error_password_invalid">Password ist ungültig</string>
+
+    <string name="image_header">Gorgeous Contrast</string>
+
+    <string name="info">E-Mail: s@bht.de, Passwort: 000000</string>
+
+    <string name="key_todo_name">Name</string>
+    <string name="key_todo_description">Beschreibung</string>
+    <string name="key_todo_done">Erledigt</string>
+    <string name="key_todo_favourite">Favorit</string>
+    <string name="key_todo_expiry">Fälligkeitsdatum</string>
+    <string name="key_credentials_email">E-Mail</string>
+    <string name="key_credentials_password">Password</string>
+
+    <string name="message_created_todo">Todo wurde erstellt</string>
+    <string name="message_deleted_local_todos">Lokale Todos wurden gelöscht</string>
+    <string name="message_deleted_remote_todos">Remote Todos wurden gelöscht</string>
+    <string name="message_deleted_todo">Todo wurde gelöscht</string>
+    <string name="message_invalid_credentials">Nutzer nicht gefunden</string>
+    <string name="message_no_remote_connection">Keine Verbindung zum Remote-Service verfügbar</string>
+    <string name="message_sorted_todos">Sortiert nach</string>
+    <string name="message_synchronized_todos">Todos wurden synchronisiert</string>
+    <string name="message_updated_todo">Todo wurde geändert</string>
+    <string name="message_verify_credentials">Eingabe wird überprüft…</string>
+    <string name="message_verify_remote_connection">Remote-Verbindung wird überprüft…</string>
+
+</resources>

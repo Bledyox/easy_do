@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".app.DetailActivity">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="dev.sash.hsel.mad.easydo.utils.DataConverter" />
+        <variable name="activity" type="dev.sash.hsel.mad.easydo.app.DetailActivity" />
+        <variable name="listener" type="dev.sash.hsel.mad.easydo.widget.ContactAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/bar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:expandedTitleGravity="bottom|start">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_header"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/header_gorgeous_contrast" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    app:title="@string/app_name" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_general"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+                android:layout_marginVertical="@dimen/outer_margin_vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                    android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:hint="@string/key_todo_name"
+                        android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:text="@={activity.todo.name}"
+                            android:inputType="text"
+                            tools:text="TEST" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/check_favourite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/check_image_margin_top"
+                        android:layout_marginEnd="@dimen/check_image_margin_end"
+                        android:button="@drawable/ic_check_favourite"
+                        android:checked="@={activity.todo.favourite}" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/wrapper_name"
+                        android:hint="@string/key_todo_description"
+                        android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="clip_vertical"
+                            android:inputType="textMultiLine"
+                            android:minLines="3"
+                            android:text="@={activity.todo.description}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+                android:layout_marginVertical="@dimen/outer_margin_vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                    android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/wrapper_expiry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:hint="@string/key_todo_expiry"
+                        android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:drawableStart="@drawable/ic_text_expiry"
+                            android:drawablePadding="@dimen/drawable_padding"
+                            android:focusable="false"
+                            android:maxLines="1"
+                            android:onClick="@{() -> activity.onClickExpiryEdit()}"
+                            android:text="@{DataConverter.fromDateToText(activity.todo.expiry)}"
+                            tools:ignore="KeyboardInaccessibleWidget" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/check_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/check_image_margin_top"
+                        android:layout_marginEnd="@dimen/check_image_margin_end"
+                        android:button="@drawable/ic_check_done"
+                        android:checked="@={activity.todo.done}" />
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+                android:layout_marginVertical="@dimen/inner_margin_vertical">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/style_theme_color_5"
+                    android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+                    android:onClick="@{() -> activity.onClickContactButton()}"
+                    app:chipIcon="@drawable/ic_btn_contact"
+                    android:text="@string/action_add_contact"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_contacts"
+                    android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:viewAdapter="@{activity.adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/adapter_contact"
+                    tools:orientation="horizontal"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/button_margin"
+            android:onClick="@{() -> activity.onClickSaveButton()}"
+            android:src="@drawable/ic_btn_save"
+            tools:ignore="RelativeOverlap" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/button_margin"
+            android:onClick="@{() -> activity.onClickDeleteButton()}"
+            android:src="@drawable/ic_btn_delete"
+            android:visibility="@{activity.todo.id == 0 ? View.INVISIBLE : View.VISIBLE}" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

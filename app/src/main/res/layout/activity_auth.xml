@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="activity"
+            type="dev.sash.hsel.mad.easydo.app.AuthActivity" />
+
+        <variable
+            name="email_watcher"
+            type="android.text.TextWatcher" />
+
+        <variable
+            name="password_watcher"
+            type="android.text.TextWatcher" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/bar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:expandedTitleGravity="bottom|start">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_header"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/header_gorgeous_contrast" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    app:title="@string/app_name" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/outer_margin_horizontal"
+            android:layout_marginVertical="@dimen/outer_margin_vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/inner_margin_horizontal"
+                android:layout_marginVertical="@dimen/inner_margin_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/inner_margin_vertical"
+                    android:hint="@string/key_credentials_email"
+                    app:errorEnabled="@{activity.email_error.present}"
+                    app:errorText="@{activity.email_error.message}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="clip_vertical"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:text="@={activity.credentials.email}"
+                        app:addTextWatcher="@{email_watcher}"
+                        app:onFocusChange="@{(view, hasFocus) -> activity.email_error.onFocusChange(hasFocus, activity.credentials.email)}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/inner_margin_vertical"
+                    android:hint="@string/key_credentials_password"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="6"
+                    app:errorEnabled="@{activity.password_error.present}"
+                    app:errorText="@{activity.password_error.message}">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:gravity="clip_vertical"
+                        android:inputType="numberPassword"
+                        android:maxLines="1"
+                        android:text="@={activity.credentials.password}"
+                        app:addTextWatcher="@{password_watcher}"
+                        app:onFocusChange="@{(view, focus) -> activity.password_error.onFocusChange(focus, activity.credentials.password)}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/button_extended_margin_bottom"
+            android:enabled="@{activity.credentials.email.length() > 0 ? activity.credentials.password.length() > 0 ? true : false : false}"
+            android:onClick="@{() -> activity.onClickLoginButton()}"
+            android:text="@string/action_login"
+            app:icon="@drawable/ic_btn_login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="@dimen/info_margin_bottom"
+            android:text="@string/info" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

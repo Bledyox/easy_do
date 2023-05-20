@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/ic_menu_sort"
+        android:onClick="onClickMenuItem"
+        android:title="@string/action_sort_toogle_expiry_favourite"
+        android:alphabeticShortcut="0"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:onClick="onClickMenuItem"
+        android:title="@string/action_generate_todos"
+        android:alphabeticShortcut="1" />
+
+    <item
+        android:onClick="onClickMenuItem"
+        android:title="@string/action_synchronize_todos"
+        android:alphabeticShortcut="2"/>
+
+    <item
+        android:onClick="onClickMenuItem"
+        android:title="@string/action_delete_local_todos"
+        android:alphabeticShortcut="3"/>
+
+    <item
+        android:onClick="onClickMenuItem"
+        android:title="@string/action_delete_remote_todos"
+        android:alphabeticShortcut="4"/>
+
+</menu>

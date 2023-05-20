@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:10:17:11 +0200] GET / HTTP/1.1 304 - http-bio-8080-exec-1 395
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:10:17:11 +0200] GET /favicon.ico HTTP/1.1 404 973 http-bio-8080-exec-3 10
+0:0:0:0:0:0:0:1 - - [29/Jun/2020:10:17:12 +0200] GET /api/todos HTTP/1.1 200 294 http-bio-8080-exec-2 511
+192.168.178.27 - - [29/Jun/2020:10:17:50 +0200] GET /api/todos HTTP/1.1 200 294 http-bio-8080-exec-7 18
+192.168.178.27 - - [29/Jun/2020:10:19:56 +0200] DELETE /api/todos HTTP/1.1 200 4 http-bio-8080-exec-10 5
+192.168.178.27 - - [29/Jun/2020:10:19:56 +0200] POST /api/todos HTTP/1.1 200 142 http-bio-8080-exec-10 123
+192.168.178.27 - - [29/Jun/2020:10:19:56 +0200] POST /api/todos HTTP/1.1 200 145 http-bio-8080-exec-10 2
+192.168.178.27 - - [29/Jun/2020:10:21:01 +0200] DELETE /api/todos HTTP/1.1 200 4 http-bio-8080-exec-4 6
+192.168.178.27 - - [29/Jun/2020:10:21:01 +0200] POST /api/todos HTTP/1.1 200 142 http-bio-8080-exec-4 4
+192.168.178.27 - - [29/Jun/2020:10:21:01 +0200] POST /api/todos HTTP/1.1 200 145 http-bio-8080-exec-4 7
+192.168.178.27 - - [29/Jun/2020:10:31:14 +0200] PUT /api/users/auth HTTP/1.1 200 4 http-bio-8080-exec-1 13

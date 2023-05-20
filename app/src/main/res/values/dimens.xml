@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <dimen name="button_margin">32dp</dimen>
+    <dimen name="button_extended_margin_bottom">64dp</dimen>
+
+    <dimen name="check_image_margin_top">16dp</dimen>
+    <dimen name="check_image_margin_end">-16dp</dimen>
+    <dimen name="check_width_no_spacing">32dp</dimen>
+
+    <dimen name="drawable_padding">8dp</dimen>
+
+    <dimen name="info_margin_bottom">196dp</dimen>
+
+    <dimen name="inner_margin_vertical">4dp</dimen>
+    <dimen name="inner_margin_horizontal">8dp</dimen>
+    <dimen name="inner_margin_horizontal_small">4dp</dimen>
+
+    <dimen name="list_margin_bottom">64dp</dimen>
+
+    <dimen name="outer_margin_vertical">4dp</dimen>
+    <dimen name="outer_margin_horizontal">8dp</dimen>
+
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="text_size_head">24sp</dimen>
+
+</resources>
