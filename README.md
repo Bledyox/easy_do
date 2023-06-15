@@ -5,3 +5,6 @@ Ein re-upload meiner Todo-Listen-App für das Modul "Mobile Application Developm
 ## Informationen
 - Upload: Februar 2022
 - Re-upload: Juni 2023
+- Languages: Java
+- Frameworks: AndroidSDK
+- Dependencies: Room, Retrofit & GSON
